@@ -289,7 +289,7 @@ test('when Keanu has hamlet with 55 audience and as-like with 35 audience and ot
           'You earned 47 credits \n');
 })
 
-test('when keanu has an unknown performances',t=>{
+test('when Keanu has an unknown performances',t=>{
     const invoice = {
         'customer': 'Keanu',
         'performances': [
@@ -303,6 +303,6 @@ test('when keanu has an unknown performances',t=>{
       try{
         result= statement(invoice,plays);
       }catch(e){
-          t.is(e.message,'Cannot read property \'type\' of undefined')
+          t.is(e.message,'Cannot destructure property \'type\' of \'play\' as it is undefined.')
       }
 })
