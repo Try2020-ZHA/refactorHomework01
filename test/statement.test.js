@@ -129,3 +129,25 @@ test('when Keanu has as-like with 10 audience',t=>{
     'Amount owed is $330.00\n' +
     'You earned 2 credits \n');
 })
+
+test('when Keanu has as-like with 10 audience and hamlet with 20 audience',t=>{
+    const invoice = {
+        'customer': 'Keanu',
+        'performances': [
+            {
+              'playID': 'as-like',
+              'audience': 10,
+            },
+            {
+              'playID': 'hamlet',
+              'audience': 20,
+            }
+        ],
+      };
+    const result=statement(invoice,plays);
+    t.is(result,'Statement for Keanu\n' +
+    ' As You Like It: $330.00 (10 seats)\n' +
+    ' Hamlet: $400.00 (20 seats)\n' +
+    'Amount owed is $730.00\n' +
+    'You earned 2 credits \n');
+})
