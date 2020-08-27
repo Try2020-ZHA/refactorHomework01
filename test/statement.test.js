@@ -333,7 +333,8 @@ test('when Keanu has an unknown performances',t=>{
       const result='';
       try{
         result= statement(invoice,plays);
+        t.fail();
       }catch(e){
-          t.is(e.message,'Cannot destructure property \'type\' of \'play\' as it is undefined.')
+          t.is(e.message,'Cannot destructure property \'name\' of \'play\' as it is undefined.')
       }
 })
