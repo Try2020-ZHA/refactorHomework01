@@ -288,3 +288,21 @@ test('when Keanu has hamlet with 55 audience and as-like with 35 audience and ot
           'Amount owed is $1,730.00\n' +
           'You earned 47 credits \n');
 })
+
+test('when keanu has an unknown performances',t=>{
+    const invoice = {
+        'customer': 'Keanu',
+        'performances': [
+          {
+            'playID': 'Bayern-Paris Saint Germain',
+            'audience': 55,
+          }
+        ],
+      };
+      const result='';
+      try{
+        result= statement(invoice,plays);
+      }catch(e){
+          t.is(e.message,'Cannot read property \'type\' of undefined')
+      }
+})
