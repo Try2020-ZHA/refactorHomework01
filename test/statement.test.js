@@ -78,3 +78,20 @@ test('when Keanu has othello with 20 audience',t=>{
     'Amount owed is $400.00\n' +
     'You earned 0 credits \n');
 })
+
+test('when Keanu has as-like with 20 audience',t=>{
+    const invoice = {
+        'customer': 'Keanu',
+        'performances': [
+          {
+            'playID': 'as-like',
+            'audience': 20,
+          }
+        ],
+      };
+    const result=statement(invoice,plays);
+    t.is(result,'Statement for Keanu\n' +
+    ' As You Like It: $360.00 (20 seats)\n' +
+    'Amount owed is $360.00\n' +
+    'You earned 4 credits \n');
+})
